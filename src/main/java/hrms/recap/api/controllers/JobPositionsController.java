@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hrms.recap.business.abstracts.JobPositionsService;
+import hrms.recap.core.utilities.results.DataResult;
 import hrms.recap.entities.concretes.JobPositions;
 
 @RestController
@@ -17,10 +18,11 @@ public class JobPositionsController {
     private JobPositionsService jobPositionsService;
     @Autowired
 	public JobPositionsController(JobPositionsService jobPositionsService) {
+        super();
 		this.jobPositionsService = jobPositionsService;
 	}
 	@GetMapping("/getall")
-	public List<JobPositions> getAll(){
-		return jobPositionsService.getAll();
+	public DataResult<List<JobPositions>> getAll(){
+		return this.jobPositionsService.getAll();
 	}
 }
