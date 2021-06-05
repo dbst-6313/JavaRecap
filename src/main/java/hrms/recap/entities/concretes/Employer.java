@@ -1,8 +1,8 @@
 package hrms.recap.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -32,4 +32,6 @@ public class Employer extends User{
 	
     @Transient
 	private String passwordCheck;
+    
+   
 }

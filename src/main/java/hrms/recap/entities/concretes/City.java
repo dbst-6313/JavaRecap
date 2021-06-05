@@ -1,4 +1,9 @@
 package hrms.recap.entities.concretes;
+
+
+
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,17 +15,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Table(name = "cities")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="job_titles")
-public class JobTitle {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+
+public class City {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="city_id")
 	private int id;
-    
-    @Column(name="title")
-    private String title;
+	
+	@Column(name="city_name")
+	private String name;
+	
+	
+	
 }

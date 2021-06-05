@@ -5,31 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hrms.recap.business.abstracts.JobTitleService;
+import hrms.recap.business.abstracts.JobService;
 import hrms.recap.core.utilities.results.DataResult;
 import hrms.recap.core.utilities.results.ErrorResult;
 import hrms.recap.core.utilities.results.Result;
 import hrms.recap.core.utilities.results.SuccessDataResult;
 import hrms.recap.core.utilities.results.SuccessResult;
-import hrms.recap.dataAccess.abstracts.JobTitleDao;
-import hrms.recap.entities.concretes.JobTitle;
+import hrms.recap.dataAccess.abstracts.JobDao;
+import hrms.recap.entities.concretes.Job;
 
 @Service
-public class JobTitleManager implements JobTitleService{
+public class JobManager implements JobService{
        @Autowired
-	   private JobTitleDao jobTitleDao;
+	   private JobDao jobDao;
 
 	@Override
-	public DataResult<List<JobTitle>> getAll() {
-		return new SuccessDataResult<List<JobTitle>>(this.jobTitleDao.findAll());
+	public DataResult<List<Job>> getAll() {
+		return new SuccessDataResult<List<Job>>(this.jobDao.findAll());
 	}
 
 	@Override
-	public Result add(JobTitle jobTitle) {
-		if(this.jobTitleDao.existsJobTitlesByTitle(jobTitle.getTitle())) {
+	public Result add(Job job) {
+		if(this.jobDao.existsJobByTitle(job.getTitle())) {
 			return new ErrorResult("Bölüm ismi zaten var");
 		}
-		this.jobTitleDao.save(jobTitle);
+		this.jobDao.save(job);
 		return new SuccessResult("Bölüm ismi eklendi");
 	}
 }

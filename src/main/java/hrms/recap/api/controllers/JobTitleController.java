@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import hrms.recap.business.abstracts.JobTitleService;
+import hrms.recap.business.abstracts.JobService;
 import hrms.recap.core.utilities.results.DataResult;
 import hrms.recap.core.utilities.results.Result;
-import hrms.recap.entities.concretes.JobTitle;
+import hrms.recap.entities.concretes.Job;
 
 @RestController
 @RequestMapping("api/jobtitle/")
 public class JobTitleController {
 	@Autowired
-    private JobTitleService jobTitleService;
+    private JobService jobService;
 	
 	@GetMapping("getall")
-	public DataResult<List<JobTitle>> getAll(){
-		return this.jobTitleService.getAll();
+	public DataResult<List<Job>> getAll(){
+		return this.jobService.getAll();
 	}
 	@PostMapping("add")
-	public Result add(JobTitle jobTitle) {
-		return this.jobTitleService.add(jobTitle);
+	public Result add(Job job) {
+		return this.jobService.add(job);
 	}
 }
