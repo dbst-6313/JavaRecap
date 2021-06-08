@@ -25,6 +25,10 @@ public class JobSeekerController {
 	public DataResult<List<JobSeeker>> getAll(){
 		return this.jobSeekerService.getAll();
 	}
+	@PostMapping("update")
+	public Result update(@RequestBody JobSeeker jobSeeker) {
+		return this.jobSeekerService.update(jobSeeker);
+	}
 	
 	@PostMapping("add")
 	public Result add(@RequestBody JobSeeker jobSeeker) {

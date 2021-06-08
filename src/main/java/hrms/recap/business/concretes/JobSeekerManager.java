@@ -41,4 +41,10 @@ public class JobSeekerManager implements JobSeekerService{
 	public DataResult<JobSeeker> getById(int id) {
 		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByUserId(id));
 	}
+
+	@Override
+	public Result update(JobSeeker jobSeeker) {
+		this.jobSeekerDao.save(jobSeeker);
+		return new SuccessResult("İş arayan güncellendi");
+	}
 }

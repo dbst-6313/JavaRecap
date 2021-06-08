@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -27,19 +29,19 @@ public class LinkController {
 	}
 
 	@PostMapping("add")
-	public Result add(Link link){
+	public Result add(@RequestBody Link link){
 		return this.linkService.add(link);
 		
 	}
 	
 	@PostMapping("update")
-	public Result update(Link link){
+	public Result update(@RequestBody Link link){
 		return this.linkService.update(link);
 		
 	}
 	
 	@PostMapping("delete")
-	public Result delete(int id){
+	public Result delete(@RequestParam int id){
 		return this.linkService.delete(id);
 		
 	}

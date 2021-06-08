@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import hrms.recap.business.abstracts.SchoolService;
 import hrms.recap.core.utilities.results.DataResult;
@@ -23,19 +25,19 @@ public class SchoolController {
 		this.schoolService = schoolService;
 	}
 	@PostMapping("add")
-	public Result add(School school){
+	public Result add(@RequestBody School school){
 		return this.schoolService.add(school);
 		
 	}
 	
 	@PostMapping("update")
-	public Result update(School school){
+	public Result update(@RequestBody School school){
 		return this.schoolService.update(school);
 		
 	}
 	
 	@PostMapping("delete")
-	public Result delete(int id){
+	public Result delete(@RequestParam int id){
 		return this.schoolService.delete(id);
 		
 	}
