@@ -36,4 +36,9 @@ public class JobSeekerManager implements JobSeekerService{
 		this.jobSeekerDao.save(jobSeeker);
 		return new SuccessResult("İş arayan kişi veri tabanına eklendi");
 	}
+
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByUserId(id));
+	}
 }

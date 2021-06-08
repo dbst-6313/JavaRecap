@@ -7,4 +7,5 @@ import hrms.recap.entities.concretes.Job;
 
 public interface JobDao extends JpaRepository<Job, Integer>{
        boolean existsJobByTitle(String title);
+      
 }

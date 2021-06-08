@@ -7,3 +7,4 @@ import hrms.recap.entities.concretes.Employer;
 public interface EmployerDao  extends JpaRepository<Employer, Integer>{
 	boolean existsEmployerByEmail(String email);
 }
+

@@ -36,7 +36,7 @@ public class JobAdvertController {
     	   return this.jobAdvertService.getAll();
        }
        @PostMapping("addAdvert")
-       public Result add(JobAdvert jobAdvert) {
+       public Result add( JobAdvert jobAdvert) {
     	   return this.jobAdvertService.add(jobAdvert);
        }
        @PostMapping("activateAdvert")

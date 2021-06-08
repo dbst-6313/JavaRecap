@@ -37,7 +37,7 @@ public class EmployerManager implements EmployerService {
 		else if(this.checkPasswordConfirm(employer.getPassword(), employer.getPasswordCheck())) {
 			return new ErrorResult("Şifreler uyuşmuyor");
 		}
-		
+		this.employerDao.save(employer);
 		return new SuccessResult("İş veren veritabanına eklendi");
 	}
     
