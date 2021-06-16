@@ -1,11 +1,13 @@
 package hrms.recap.entities.concretes;
 
+
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,16 +17,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="programming_skills")
-public class ProgrammingSkill {
+@Table(name="work_types")
+public class WorkType {
 	@Id
-	@Column(name="programming_skills_id")
+	@Column(name="work_types_id")
 	private int id;
 	
-	@Column(name="introductory_text")
-	private String introductoryText;
+	@Column(name="work_types_name")
+	private String name;
 	
-	@ManyToOne()
-	@JoinColumn(name = "jobseeker_id")
-	private JobSeeker jobseeker;
+	 
 }

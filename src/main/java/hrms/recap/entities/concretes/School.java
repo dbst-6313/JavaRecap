@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,7 +20,6 @@ import lombok.NoArgsConstructor;
 @Table(name="schools")
 public class School {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="school_id")
 	private int id;
 	

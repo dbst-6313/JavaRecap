@@ -14,6 +14,7 @@ import hrms.recap.core.utilities.results.SuccessResult;
 import hrms.recap.dataAccess.abstracts.JobSeekerDao;
 import hrms.recap.entities.concretes.JobSeeker;
 
+
 @Service
 public class JobSeekerManager implements JobSeekerService{
 	@Autowired
@@ -47,4 +48,6 @@ public class JobSeekerManager implements JobSeekerService{
 		this.jobSeekerDao.save(jobSeeker);
 		return new SuccessResult("İş arayan güncellendi");
 	}
+
+
 }

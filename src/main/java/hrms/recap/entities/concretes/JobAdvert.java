@@ -25,11 +25,11 @@ import lombok.NoArgsConstructor;
 
 public class JobAdvert {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
 	private int id;
 	
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="job_id")
     private Job job;
     
@@ -37,10 +37,17 @@ public class JobAdvert {
     @JoinColumn(name="city_id")
     private City city;
     
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="employer_id")
     private Employer employer;
-	
+    
+    @ManyToOne()
+    @JoinColumn(name="work_types_id")
+    private WorkType workType;
+    
+    @ManyToOne()
+    @JoinColumn(name="work_times_id")
+    private WorkTime workTime;
     
     @Column(name="available_position_count")
     private int availablePositionCount;

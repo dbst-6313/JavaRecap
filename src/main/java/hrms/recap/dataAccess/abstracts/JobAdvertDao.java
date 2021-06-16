@@ -8,6 +8,7 @@ import hrms.recap.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert,Integer>{
        List<JobAdvert> findByIsActiveTrue();
+       List<JobAdvert> findByIsActiveFalse();
        List<JobAdvert> findByIsActiveTrueOrderByReleaseDateAsc();
        List<JobAdvert> findByIsActiveTrueAndEmployerUserId(int id);
 }

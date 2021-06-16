@@ -3,9 +3,12 @@ package hrms.recap.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hrms.recap.business.abstracts.JobAdvertService;
@@ -13,8 +16,10 @@ import hrms.recap.core.utilities.results.DataResult;
 import hrms.recap.core.utilities.results.Result;
 import hrms.recap.entities.concretes.JobAdvert;
 
+
 @RestController
 @RequestMapping("/api/jobadvert/")
+@CrossOrigin(origins="http://localhost:3000")
 public class JobAdvertController {
        @Autowired
        private JobAdvertService jobAdvertService;
@@ -35,16 +40,25 @@ public class JobAdvertController {
        public DataResult<List<JobAdvert>> getAll(){
     	   return this.jobAdvertService.getAll();
        }
+       @GetMapping("getbyid")
+       public DataResult<JobAdvert> getById(int id){
+    	   return this.jobAdvertService.getById(id);
+       }
+       @GetMapping("getNotActiveAdverts")
+       public DataResult<List<JobAdvert>> getNotActiveAdverts(){
+    	   return this.jobAdvertService.getNotActiveJobAdverts();
+       }
        @PostMapping("addAdvert")
-       public Result add( JobAdvert jobAdvert) {
+       public Result add(@RequestBody JobAdvert jobAdvert) {
     	   return this.jobAdvertService.add(jobAdvert);
        }
        @PostMapping("activateAdvert")
-       public Result activateAdver(int id) {
+       public Result activateAdver(@RequestParam int id) {
     	   return this.jobAdvertService.activateJobAdvert(id);
        }
        @PostMapping("deactivateAdvert")
-       public Result deactivateAdvert(int id) {
+       public Result deactivateAdvert(@RequestParam int id) {
     	   return this.jobAdvertService.deactivateJobAdvert(id);
        }
+ 
 }

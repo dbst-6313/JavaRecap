@@ -1,8 +1,6 @@
 package hrms.recap.entities.concretes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Table(name="images")
 public class Image {
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 @Column(name="image_id")
     private int id;
     

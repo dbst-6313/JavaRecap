@@ -3,6 +3,7 @@ package hrms.recap.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,8 +15,10 @@ import hrms.recap.core.utilities.results.DataResult;
 import hrms.recap.core.utilities.results.Result;
 import hrms.recap.entities.concretes.JobSeeker;
 
+
 @RestController
 @RequestMapping("/api/jobseekers/")
+@CrossOrigin(origins="http://localhost:3000")
 public class JobSeekerController {
  
 	@Autowired
@@ -35,4 +38,6 @@ public class JobSeekerController {
 		return this.jobSeekerService.add(jobSeeker);
 		
 	}
+
+
 }
