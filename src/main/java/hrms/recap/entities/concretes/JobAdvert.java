@@ -1,6 +1,7 @@
 package hrms.recap.entities.concretes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,6 +51,10 @@ public class JobAdvert {
     @ManyToOne()
     @JoinColumn(name="work_times_id")
     private WorkTime workTime;
+    
+    @OneToMany(mappedBy="jobAdvert")
+    @JsonIgnore()
+    private List<Favorite> favorites;
     
     @Column(name="available_position_count")
     private int availablePositionCount;

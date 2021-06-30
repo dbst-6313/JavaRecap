@@ -11,10 +11,14 @@ public interface JobAdvertService {
        DataResult<List<JobAdvert>> getActiveJobAdverts();
        DataResult<List<JobAdvert>> getNotActiveJobAdverts();
        DataResult<List<JobAdvert>> getActiveJobAdvertsSorted();
+       DataResult<List<JobAdvert>> getByCityId(int id);
+       DataResult<List<JobAdvert>> getByCityAndWorkTypeId(int cityId,int workTypeId);
+       DataResult<List<JobAdvert>> getByWorkTypeId(int id);
        DataResult<List<JobAdvert>> getActiveJobAdvertsByEmployer(int id);
        DataResult<JobAdvert> getById(int id);
        DataResult<List<JobAdvert>> getAll();
        Result add(JobAdvert jobAdvert);
+       Result deleteById(int id);
        Result activateJobAdvert(int id);
        Result deactivateJobAdvert(int id);
 }

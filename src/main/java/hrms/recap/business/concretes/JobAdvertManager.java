@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import hrms.recap.business.abstracts.JobAdvertService;
@@ -22,6 +24,7 @@ public class JobAdvertManager implements JobAdvertService{
 	private JobAdvertDao jobAdvertDao;
 	@Override
 	public DataResult<List<JobAdvert>> getActiveJobAdverts() {
+	
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByIsActiveTrue(),"Aktif iş ilanları listelendi");
 	}
 
@@ -72,6 +75,29 @@ public class JobAdvertManager implements JobAdvertService{
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByIsActiveFalse(),"Aktif olmayan ilanlar listelendi");
 	}
 
+	@Override
+	public Result deleteById(int id) {
+		JobAdvert jobAdvert = this.jobAdvertDao.findById(id).get();
+		this.jobAdvertDao.delete(jobAdvert);
+		return new SuccessResult("İş ilanı silindi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getByCityId(int id) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByCityId(id));
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getByWorkTypeId(int id) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByWorkTypeId(id));
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getByCityAndWorkTypeId(int cityId, int workTypeId) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByCityIdAndWorkTypeId(cityId, workTypeId));
+	}
+
+	
 
 
 }

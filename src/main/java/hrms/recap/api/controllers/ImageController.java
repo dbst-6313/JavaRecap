@@ -44,10 +44,12 @@ public class ImageController {
 		image.setJobseeker(jobSeeker);
 		return this.imageService.add(image, imageFile);
 	}
-	@PostMapping("update")
-	public Result update( @RequestBody Image image){
-		return this.imageService.update(image);
-		
+
+
+	@PostMapping(value = "update")
+	public Result update(@RequestParam(value = "id")int id,@RequestParam(value="imageFile") MultipartFile imageFile){
+		Image image = this.imageService.getById(id).getData();
+		return this.imageService.add(image, imageFile);
 	}
 	
 	@PostMapping("delete")

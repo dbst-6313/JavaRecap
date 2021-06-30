@@ -44,6 +44,18 @@ public class JobAdvertController {
        public DataResult<JobAdvert> getById(int id){
     	   return this.jobAdvertService.getById(id);
        }
+       @GetMapping("getByCityId")
+       public DataResult<List<JobAdvert>> getByCityId(@RequestParam int id){
+    	   return this.jobAdvertService.getByCityId(id);
+       }
+       @GetMapping("getByWorkTypeId")
+       public DataResult<List<JobAdvert>> getByWorkTypeId(@RequestParam int id){
+    	   return this.jobAdvertService.getByWorkTypeId(id);
+       }
+       @GetMapping("getByCityAndWorkTypeId")
+       public DataResult<List<JobAdvert>> getByCityAndWorkTypeId(@RequestParam int cityId,@RequestParam int workTypeId){
+    	   return this.jobAdvertService.getByCityAndWorkTypeId(cityId,workTypeId);
+       }
        @GetMapping("getNotActiveAdverts")
        public DataResult<List<JobAdvert>> getNotActiveAdverts(){
     	   return this.jobAdvertService.getNotActiveJobAdverts();
@@ -51,6 +63,10 @@ public class JobAdvertController {
        @PostMapping("addAdvert")
        public Result add(@RequestBody JobAdvert jobAdvert) {
     	   return this.jobAdvertService.add(jobAdvert);
+       }
+       @PostMapping("deleteAdvert")
+       public Result add(@RequestParam int id) {
+    	   return this.jobAdvertService.deleteById(id);
        }
        @PostMapping("activateAdvert")
        public Result activateAdver(@RequestParam int id) {

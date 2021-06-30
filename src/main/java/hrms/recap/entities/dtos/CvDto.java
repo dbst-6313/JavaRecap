@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import hrms.recap.entities.concretes.City;
 import hrms.recap.entities.concretes.CvCoverLetter;
 import hrms.recap.entities.concretes.Image;
 import hrms.recap.entities.concretes.JobExperience;
@@ -20,9 +21,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CvDto {
-	  @JsonIgnore
-	    public JobSeeker jobSeeker;
-
+	  
+	    @JsonIgnore
+	    private JobSeeker jobSeeker;
 	    private List<School> schools;
 	    private List<JobExperience> jobExperiences;
 	    private List<Language> languages;

@@ -10,7 +10,7 @@ import hrms.recap.entities.concretes.Image;
 
 public interface ImageService {
 	Result add(Image image, MultipartFile imageFile);
-	Result update(Image image);
+	Result update(Image image,MultipartFile imageFile);
 	Result delete(int id);
 	DataResult<List<Image>> getAll();
 	DataResult<Image> getById(int id);	

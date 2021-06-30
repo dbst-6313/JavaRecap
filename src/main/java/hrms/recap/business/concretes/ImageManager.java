@@ -40,7 +40,9 @@ public class ImageManager implements ImageService{
 	}
 
 	@Override
-	public Result update(Image image) {
+	public Result update(Image image,MultipartFile imageFile) {
+		Map<String,String> uploadImage = this.imageService.uploadImageFile(imageFile).getData();
+		image.setUrl(uploadImage.get("url"));
 		this.imageDao.save(image);
 		return new SuccessResult("Fotoğraf güncellendi");
 	}
