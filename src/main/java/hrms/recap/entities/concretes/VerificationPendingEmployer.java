@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VerificationPendingEmployer extends User {
+public class VerificationPendingEmployer {
 	@Id
 
     @Column(name="user_id")
