@@ -8,5 +8,7 @@ import hrms.recap.entities.concretes.Employer;
 
 public interface EmployerService {
 	  DataResult<List<Employer>> getAll();
+	  DataResult<Employer> getById(int id);
 	   Result add(Employer employer);
+	   Result update(Employer employer);
 }
