@@ -8,8 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import hrms.recap.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert,Integer>{
-       List<JobAdvert> findByIsActiveTrue();
+       List<JobAdvert> findByIsActiveTrue(Pageable pageable);
        List<JobAdvert> findByIsActiveFalse();
+
        List<JobAdvert> findByWorkTypeId(int workTypeId);
        List<JobAdvert> findByCityId(int cityId);
        List<JobAdvert> findByCityIdAndWorkTypeId(int cityId,int workTypeId);

@@ -22,10 +22,12 @@ public class JobAdvertManager implements JobAdvertService{
     
 	@Autowired
 	private JobAdvertDao jobAdvertDao;
-	@Override
-	public DataResult<List<JobAdvert>> getActiveJobAdverts() {
 	
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByIsActiveTrue(),"Aktif iş ilanları listelendi");
+	@Override
+	public DataResult<List<JobAdvert>> getActiveJobAdverts(int pageNo,int pageSize) {
+	
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByIsActiveTrue(pageable),"Aktif iş ilanları listelendi");
 	}
 
 	@Override
@@ -96,6 +98,8 @@ public class JobAdvertManager implements JobAdvertService{
 	public DataResult<List<JobAdvert>> getByCityAndWorkTypeId(int cityId, int workTypeId) {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findByCityIdAndWorkTypeId(cityId, workTypeId));
 	}
+
+
 
 	
 

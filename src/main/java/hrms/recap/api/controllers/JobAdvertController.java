@@ -25,8 +25,8 @@ public class JobAdvertController {
        private JobAdvertService jobAdvertService;
        
        @GetMapping("getActiveAdverts")
-       public DataResult<List<JobAdvert>> getActiveAdverts(){
-    	   return this.jobAdvertService.getActiveJobAdverts();
+       public DataResult<List<JobAdvert>> getActiveAdverts(int pageSize,int pageNo){
+    	   return this.jobAdvertService.getActiveJobAdverts(pageNo,pageSize);
        }
        @GetMapping("getActiveAdvertsSorted")
        public DataResult<List<JobAdvert>> getActiveAdvertsSorted(){
